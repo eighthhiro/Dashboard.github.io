@@ -5,19 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
-
     <link rel="stylesheet" href="css/styles.css">
-
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
     <!-- Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-
   </head>
   <body>
     <div class="grid-container">
-
       <!-- Header -->
       <header class="header">
         <div class="header-left">
@@ -38,46 +33,17 @@
             <img src="images/logo.png" alt="logo">
           </div>
         </div>
-
         <ul class="sidebar-list">
-          <li class="sidebar-list-item">
-            <a href="#">
-              <span class="material-icons-outlined">dashboard</span> Dashboard
-            </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="#">
-              <span class="material-icons-outlined">savings</span> Finance
-            </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="#">
-              <span class="material-icons-outlined">poll</span> Reports
-            </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="#">
-              <span class="material-icons-outlined">groups</span> Customers
-            </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="#">
-              <span class="material-icons-outlined">school</span> Curriculum
-            </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="#">
-              <span class="material-icons-outlined">settings</span> Settings
-            </a>
-          </li>
+          <li class="sidebar-list-item"><a href="#"><span class="material-icons-outlined">dashboard</span> Dashboard</a></li>
+          <li class="sidebar-list-item"><a href="#"><span class="material-icons-outlined">savings</span> Finance</a></li>
+          <li class="sidebar-list-item"><a href="#"><span class="material-icons-outlined">poll</span> Reports</a></li>
+          <li class="sidebar-list-item"><a href="#"><span class="material-icons-outlined">groups</span> Customers</a></li>
+          <li class="sidebar-list-item"><a href="#"><span class="material-icons-outlined">school</span> Curriculum</a></li>
+          <li class="sidebar-list-item"><a href="#"><span class="material-icons-outlined">settings</span> Settings</a></li>
         </ul>
-
         <div class="sidebar-logout">
-          <a href="https://leinadclark.github.io/MirandaDelacruz/">
-          <span class="material-icons-outlined">logout</span> Go Back
-          </a>
+          <a href="https://leinadclark.github.io/MirandaDelacruz/"><span class="material-icons-outlined">logout</span> Go Back</a>
         </div>
-
       </aside>
       <!-- End Sidebar -->
 
@@ -87,58 +53,94 @@
           <h1>Hello Admin! Here's your Project Overview:</h1>
         </div>
 
-        <div class="main-cards">
-
-          <div class="card">
-            <div class="card-inner">
-              <h3>PRODUCTS</h3>
-              <span class="material-icons-outlined">inventory_2</span>
+        <div class="main-sections">
+          <section class="main-section">
+            <!-- Curriculum Card -->
+            <div class="card">
+              <h3>Curriculum</h3>
+              <div class="curriculum-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Course Title</th>
+                      <th>Current Users</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Fundamentals of Graphic Design</td>
+                      <td>2,000 students</td>
+                    </tr>
+                    <tr>
+                      <td>Advanced Branding and Identity Design</td>
+                      <td>2,200 students</td>
+                    </tr>
+                    <tr>
+                      <td>Web and User Interface Design</td>
+                      <td>1,534 students</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <h1>249</h1>
-          </div>
+          </section>
 
-          <div class="card">
-            <div class="card-inner">
-              <h3>CATEGORIES</h3>
-              <span class="material-icons-outlined">category</span>
+          <section class="main-section">
+            <div class="card">
+              <h3 class="card_title">Enrolled Students</h3>
+              <div class="number">
+                <h1 class="card_digit">
+                  <span class="material-icons-outlined title_icon">person</span>
+                  5,734 <span class="red_data">9%↓ this month</span>
+                </h1>
+              </div>
+
+              <!-- Bottom Section -->
+              <div class="goal-and-chart">
+                <!-- Monthly Goal on the left -->
+                <div class="goal-container">
+                  <h3>Goal</h3>
+                  <h1 class="goal-number">
+                    <span class="material-icons-outlined title_icon">person</span>
+                    6,500
+                  </h1>
+                </div>
+
+                <!-- Radial Chart on the right -->
+                <div id="enrolled-students-chart" class="chart-container"></div>
+              </div>
             </div>
-            <h1>25</h1>
-          </div>
 
-          <div class="card">
-            <div class="card-inner">
-              <h3>CUSTOMERS</h3>
-              <span class="material-icons-outlined">groups</span>
+            <div class="card">
+              <h3 class="card_title">Course Abandonment</h3>
+
+              <div class="number">
+                <h1 class="card_digit">
+                  <span class="material-icons-outlined title_icon">person</span>
+                  359 <span class="red_data">15%↑ this month</span>
+                </h1>
+              </div>
+
+              <div id="line-chart" class="line-container"></div>
+
             </div>
-            <h1>1500</h1>
-          </div>
+          </section>
 
-          <div class="card">
-            <div class="card-inner">
-              <h3>ALERTS</h3>
-              <span class="material-icons-outlined">notification_important</span>
+          <section class="main-section">
+            <div class="card">
+              <h3 class="card_title">Overall Profit</h3>
+              <h1 class="card_digit">$12.2m <span class="green_data">4%↑ this month</span></h1>
+
+              <div class="charts-card">
+                <h2 class="chart-title">Monthly Profit Chart</h2>
+                <!-- Profit Chart Container -->
+                <div id="profit-chart"></div>
+              </div>
             </div>
-            <h1>56</h1>
-          </div>
-
-        </div>
-
-        <div class="charts">
-
-          <div class="charts-card">
-            <h2 class="chart-title">Top 5 Products</h2>
-            <div id="bar-chart"></div>
-          </div>
-
-          <div class="charts-card">
-            <h2 class="chart-title">Purchase and Sales Orders</h2>
-            <div id="area-chart"></div>
-          </div>
-
+          </section>
         </div>
       </main>
       <!-- End Main -->
-
     </div>
 
     <!-- Scripts -->

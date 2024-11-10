@@ -1,15 +1,16 @@
-:root{
+:root {
   --primary: #10161f;
   --secondary: #171f2c;
   --accent: #039ad6d0;
   --text: #fffffff5;
   --fade: #9e9ea4;
 }
+
 body {
   margin: 0;
   padding: 0;
   background-color: #10161f;
-  color: #9e9ea4;
+  color: var(--fade);
   font-family: 'Inter', sans-serif;
 }
 
@@ -41,12 +42,7 @@ body {
   box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
 }
 
-.menu-icon {
-  display: none;
-}
-
 /* ---------- SIDEBAR ---------- */
-
 #sidebar {
   grid-area: sidebar;
   height: 100%;
@@ -64,7 +60,7 @@ body {
   margin-bottom: 30px;
 }
 
-.sidebar-brand img{
+.sidebar-brand img {
   top: 0;
   margin: 0 15px;
   position: absolute;
@@ -93,11 +89,11 @@ body {
   color: var(--fade);
 }
 
-.sidebar-list-item span{
+.sidebar-list-item span {
   margin-right: 2px;
 }
 
-.sidebar-logout{
+.sidebar-logout {
   position: absolute;
   bottom: 2%;
   padding: 20px 20px 20px 20px;
@@ -105,13 +101,12 @@ body {
   cursor: pointer;
 }
 
-.sidebar-logout a{
+.sidebar-logout a {
   text-decoration: none;
   color: var(--fade);
 }
 
 /* ---------- MAIN ---------- */
-
 .main-container {
   grid-area: main;
   overflow-y: auto;
@@ -124,65 +119,172 @@ body {
   justify-content: space-between;
 }
 
-.main-cards {
+.main-sections {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 sections */
   gap: 20px;
   margin: 20px 0;
 }
 
-.card {
+.main-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between cards */
+}
+
+.main-section .card {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 25px;
+  padding: 20px;
   border-radius: 5px;
+  background-color: var(--secondary);
 }
 
-.card:first-child {
-  background-color: var(--accent);
+.card_title {
+  font-size: 22px;
+  margin-bottom: 0;
 }
 
-.card:nth-child(2) {
-  background-color: #ff6d00;
-}
-
-.card:nth-child(3) {
-  background-color: #2e7d32;
-}
-
-.card:nth-child(4) {
-  background-color: #d50000;
-}
-
-.card-inner {
+.card_digit {
+  font-size: 35px;
   display: flex;
   align-items: center;
+}
+
+.card_digit .title_icon {
+  margin-right: 10px;
+}
+
+.green_data {
+  font-size: 18px;
+  color: #06d306;
+  margin-left: 10px;
+}
+
+.red_data {
+  font-size: 18px;
+  color: #da0404;
+  margin-left: 10px;
+}
+
+.number {
+  text-align: left;
+}
+
+/* Bottom Section: Goal and Chart */
+.goal-and-chart {
+  margin-top: -10px;
+  display: flex;
   justify-content: space-between;
+  margin-bottom: -20px;
+  
 }
 
-.card-inner > .material-icons-outlined {
-  font-size: 45px;
+/* Monthly Goal section */
+.goal-container {
+  text-align: left;
+  flex: 1;
 }
 
-.charts {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 60px;
+.goal-number {
+  font-size: 25px;
+  color: var(--text);
+  margin-top: 10px;
 }
+
+/* Chart container (Radial chart) */
+.chart-container {
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+  margin: 0 30px;
+}
+
+
+/* ---------- CHARTS ---------- */
 
 .charts-card {
   background-color: var(--secondary);
-  margin-bottom: 20px;
-  padding: 25px;
+  margin-bottom: 30px;
+  padding: 0;
   box-sizing: border-box;
-  -webkit-column-break-inside: avoid;
   border-radius: 5px;
+  height: 400px; /* Make space for chart */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.chart-title {
+#profit-chart {
+  width: 100%;
+  height: 350px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+#enrolled-students-chart {
+  height: 120px; 
+  width: 150px;  
+}
+
+.line-container {
+  width: 100%;
+  height: 100%;
+  margin-top: -30px;
+}
+
+/* Optional: Adjust chart styles */
+#line-chart {
+  width: 100%;
+  height: 100%;
+}
+
+/* Curriculum Table Styles */
+.curriculum-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--secondary); /* Match the card background */
+  border-radius: 5px;
+  margin-top: 20px; /* Space between the number and table */
+}
+
+.curriculum-table th, .curriculum-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #444a58; /* Subtle border for rows */
+  color: var(--fade); /* Lighter text color to blend with dark theme */
+}
+
+.curriculum-table th {
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #171f2c; /* Slightly darker background for header */
+  color: #fff; /* White text for clarity */
+}
+
+.curriculum-table td {
+  font-size: 14px;
+  background-color: var(--secondary); /* Keep the card background for rows */
+  color: #c5c7c9; /* Soft light color for row text */
+}
+
+.curriculum-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.05); /* Subtle hover effect */
+}
+
+.curriculum-table td:last-child {
+  text-align: center; /* Center align the student numbers */
+}
+
+/* Aligning the "Current Users" Number and Title */
+.number {
   display: flex;
   align-items: center;
-  justify-content: center;
+}
+
+.number h1 {
+  margin-right: 20px;
 }
